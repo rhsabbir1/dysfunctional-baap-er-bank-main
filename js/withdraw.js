@@ -14,7 +14,9 @@ document.getElementById("btn-withdraw").addEventListener("click", function () {
   
 
   const previousWithdrawTotal = getTextElementValueById("withdraw-total");
-  
+  if(isNaN(newWithdrawAmount) || isNaN(previousWithdrawTotal)){
+    return;
+  }
 
   const newWithdrawTotal = previousWithdrawTotal + newWithdrawAmount;
 
