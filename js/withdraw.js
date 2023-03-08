@@ -14,15 +14,25 @@ document.getElementById("btn-withdraw").addEventListener("click", function () {
   
 
   const previousWithdrawTotal = getTextElementValueById("withdraw-total");
-  if(isNaN(newWithdrawAmount) || isNaN(previousWithdrawTotal)){
+
+  if(newWithdrawAmount <= 0 || isNaN(newWithdrawAmount) || isNaN(previousWithdrawTotal)){
+    return;
+  }
+  
+  // const newWithdrawTotal = previousWithdrawTotal + newWithdrawAmount;
+  
+  
+  // setTextElementValueById("withdraw-total", newWithdrawTotal);
+
+  const previousBalanceTotal = getTextElementValueById("balance-total");
+
+  if(newWithdrawAmount <= 0 || newWithdrawAmount > previousBalanceTotal || isNaN(newWithdrawAmount) || isNaN(previousWithdrawTotal)){
     return;
   }
 
   const newWithdrawTotal = previousWithdrawTotal + newWithdrawAmount;
-
-  
   setTextElementValueById("withdraw-total", newWithdrawTotal);
-  const previousBalanceTotal = getTextElementValueById("balance-total");
+
   const newBalanceTotal = previousBalanceTotal - newWithdrawAmount;
   setTextElementValueById("balance-total", newBalanceTotal);
 });
