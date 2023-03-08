@@ -13,7 +13,12 @@ document.getElementById("btn-deposit").addEventListener("click", function () {
     */
   const previousDepositTotal = getTextElementValueById("deposit-total");
 
+  
   // calculate new deposit total
+  if(isNaN(newDepositAmount) || isNaN(previousDepositTotal)){
+    return;
+  }
+
   const newDepositTotal = previousDepositTotal + newDepositAmount;
 console.log(newDepositTotal)
   // console.log(newDepositTotal, previousDepositTotal, newDepositAmount);
